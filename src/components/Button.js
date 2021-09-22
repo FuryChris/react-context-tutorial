@@ -6,23 +6,24 @@ class Button extends React.Component {
   // static contextType = LanguageContext;
   // // static -- dodaje property bezpośrednio do klasy
 
+  renderSubmit(language) {
+    switch (language) {
+      case 'polish':
+        return 'Zatwierdź';
+      case 'dutch':
+        return 'Voorleggen';
+      case 'english':
+        return 'Submit';
+      default:
+        return 'Submit';
+    }
+  }
+
   renderButton(color) {
     return (
       <button className={`ui button ${color}`}>
         <LanguageContext.Consumer>
-          {/* Consumer Approach instead context.type approach. Better approach - simplify usage of more context providers */}
-          {(value) => {
-            switch (value) {
-              case 'polish':
-                return 'Zatwierdź';
-              case 'dutch':
-                return 'Voorleggen';
-              case 'english':
-                return 'Submit';
-              default:
-                return 'Submit';
-            }
-          }}
+          {({ language }) => this.renderSubmit(language)}
         </LanguageContext.Consumer>
       </button>
     );

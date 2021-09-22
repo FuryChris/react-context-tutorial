@@ -6,7 +6,7 @@ class Field extends React.Component {
   //   contextype allow only 1 context to be managed if we want more we using consumers
   render() {
     let text;
-    switch (this.context) {
+    switch (this.context.language) {
       case 'polish':
         text = 'Nazwa';
         break;
